@@ -1,7 +1,7 @@
 package application;
 
 /**
- * This is the AccountDatabase class represents the database for accounts.
+ * AccountDatabase holds the logic for getting and setting variables in the AccountDatabase class.
  *
  * @author Kiernan King and Ahmed Alghazwi
  */
@@ -85,11 +85,11 @@ public class AccountDatabase {
     }
 
     /**
-     * This is the find method.
-     *
-     * @param account the account
-     * @return the index
-     */
+	 * The find method checks to see if we can find the appointment in the system.
+	 * 
+	 * @param account Object of type Account.
+	 * @return the index if found, or NOT_FOUND if not found.
+	 */
     private int find(Account account) {
         for (int i = BEGINNING_INDEX; i < numAcct; i++) {
             Account anotherAccount = this.accounts[i];
@@ -112,11 +112,11 @@ public class AccountDatabase {
     }
 
     /**
-     * This is the open method
-     *
-     * @param account the account
-     * @return true if opened
-     */
+	 * The open method adds an account to the list of accounts if it does not exist already.
+	 * 
+	 * @param account Object of type Account.
+	 * @return true if we are able to successfully open the new account.
+	 */
     public boolean open(Account account) {
         if (this.accounts.length == this.numAcct) {
             grow();
@@ -126,11 +126,11 @@ public class AccountDatabase {
     }
 
     /**
-     * This is the close method.
-     *
-     * @param account the account
-     * @return true if closed
-     */
+	 * The 'close' method closes an account from the list of accounts.
+	 * 
+	 * @param account Object of type Account.
+	 * @return true if closed, false if account not found.
+	 */
     public boolean close(Account account) {
         int index = find(account);
         if (index != NOT_FOUND) {
@@ -153,20 +153,18 @@ public class AccountDatabase {
     }
 
     /**
-     * This is the deposit method.
-     *
-     * @param account the account
-     */
+	 * The deposit method deposits a given amount into a given account.
+	 * @param account Object of type Account.
+	 */
     public void deposit(Account account) {
         this.getAccount(account).deposit(account.balance);
     }
 
     /**
-     * This is the withdraw method
-     *
-     * @param account the account
-     * @return true if withdrawn
-     */
+	 * The withdraw method withdraws a certain amount from a given account.
+	 * @param account Object of type Account.
+	 * @return true if withdrawn successfully, false if not.
+	 */
     public boolean withdraw(Account account) {
         Account anotherAccount = this.getAccount(account);
         double amount = account.getBalance();
@@ -179,10 +177,10 @@ public class AccountDatabase {
     }
 
     /**
-     * This is the print method.
-     *
-     * @return the data
-     */
+	 * This is the print method.
+	 * Prints all the accounts in current order.
+	 * @return data Object that contains list.
+	 */
     public String print() {
         String data = "";
         if (numAcct == EMPTY) {
@@ -198,10 +196,10 @@ public class AccountDatabase {
     }
 
     /**
-     * This is the printByAccountType method.
-     *
-     * @return data
-     */
+	 * This is the printByAccountType method.
+	 * Prints all the accounts in order by Account Type.
+	 * @return data Object that contains list.
+	 */
     public String printByAccountType() {
         String data = "";
         if (numAcct == EMPTY) {
@@ -226,10 +224,10 @@ public class AccountDatabase {
     }
 
     /**
-     * This is the printFeeAndInterest method.
-     *
-     * @return data
-     */
+	 * This is the printFeeAndInterest method.
+	 * Prints all the accounts in order by fee and interest.
+	 * @return data Object that contains list.
+	 */
     public String printFeeAndInterest() {
         String data = "";
         if (numAcct == EMPTY) {
@@ -249,10 +247,9 @@ public class AccountDatabase {
     }
 
     /**
-     * This is the updateBalance method.
-     *
-     * @return data
-     */
+	 * The updateBalance method updates the current balance of the account.
+	 * @return data Object that contains list.
+	 */
     public String updateBalance() {
         String data = "";
         if (numAcct == EMPTY) {

@@ -9,44 +9,44 @@ package application;
 public abstract class Account {
 
 	/**
-	 * This is College Checking
+	 * Sets the account type for College Checking.
 	 */
 	public static final String COLLEGE_CHECKING = "College Checking";
-
+	
 	/**
-	 * This is Money Market Savings
+	 * Sets the account type for Money Market.
 	 */
 	public static final String MONEY_MARKET = "Money Market Savings";
-
+	
 	/**
-	 * This is Checking
+	 * Sets the account type for Checking.
 	 */
 	public static final String CHECKING = "Checking";
-
+	
 	/**
-	 * This is Savings
+	 * Sets the account type for Savings.
 	 */
 	public static final String SAVINGS = "Savings";
-
+	
 	/**
-	 * This is holder.
+	 * Creates the holder of the account, an Object of type Profile.
 	 */
 	protected Profile holder;
-
+	
 	/**
-	 * This is closed.
+	 * Creates the variable that determines whether or not an account is closed, an Object of type boolean.
 	 */
 	protected boolean closed;
-
+	
 	/**
-	 * This is balance.
+	 * Creates the balance of the account, an Object of type boolean.
 	 */
 	protected double balance;
 
 	/**
 	 * This is the Account constructor.
 	 *
-	 * @param holder the holder
+	 * @param holder Object of type Profile.
 	 */
 	protected Account(Profile holder) {
 		this.holder = holder;
@@ -54,28 +54,25 @@ public abstract class Account {
 	}
 
 	/**
-	 * This is the getHolder method.
-	 *
-	 * @return the holder
+	 * getHolder gets the holder for the Account.
+	 * @return object of type Profile for the Account.
 	 */
 	public Profile getHolder() {
 		return this.holder;
 	}
 
 	/**
-	 * This is the getBalance method.
-	 *
-	 * @return the balance
+	 * getBalance gets the balance for the Account.
+	 * @return object of type double for the Account.
 	 */
 	public double getBalance() {
 		return this.balance;
 	}
 
 	/**
-	 * This is the equals method.
-	 *
-	 * @param obj the obj
-	 * @return true if equals
+	 * equals compares two accounts.
+	 * @param obj Object of type Accounts.
+	 * @return boolean (True if holder, closed status, and balance match), (False if holder, closed status, and balance do not match)
 	 */
 	@Override
 	public boolean equals(Object obj) {
@@ -95,8 +92,8 @@ public abstract class Account {
 
 	/**
 	 * This is the toString method.
-	 *
-	 * @return the string
+	 * 
+	 * @return the string representation of the Account.
 	 */
 	@Override
 	public String toString() {
@@ -105,41 +102,36 @@ public abstract class Account {
 	}
 
 	/**
-	 * This is the withdraw method.
-	 *
-	 * @param amount the amount
+	 * The withdraw method will removed the designated amount from the balance of the account.
+	 * @param amount Object of type Double.
 	 */
 	public void withdraw(double amount) {
 		this.balance -= amount;
 	}
 
 	/**
-	 * This is the deposit method.
-	 *
-	 * @param amount the amount
+	 * The deposit method will add the designated amount to the balance of the account.
+	 * @param amount Object of type Double.
 	 */
 	public void deposit(double amount) {
 		this.balance += amount;
 	}
 
 	/**
-	 * This is the monthlyInterest method.
-	 *
-	 * @return the monthly interest
+	 * monthlyInterest returns the monthly interest.
+	 * @return the monthly interest.
 	 */
 	public abstract double monthlyInterest(); // return the monthly interest
 
 	/**
-	 * This is the fee method.
-	 *
-	 * @return the fee
+	 * fee returns the monthly fee.
+	 * @return the monthly fee.
 	 */
 	public abstract double fee(); // return the monthly fee
 
 	/**
-	 * This is the get type method.
-	 *
-	 * @return the type
+	 * getType returns the account type.
+	 * @return the account type.
 	 */
 	public abstract String getType(); // return the account type (class name)
 }

@@ -8,26 +8,26 @@ package application;
 public class Profile {
 
 	/**
-	 * This is fname
+	 * Creates a string of the first name.
 	 */
 	private String fname;
-
+	
 	/**
-	 * This is lname
+	 * Creates a string of the last name.
 	 */
 	private String lname;
-
+	
 	/**
-	 * This is dob
+	 * Creates a Date of the date of birth.
 	 */
 	private Date dob;
 
 	/**
-	 * This is the Profile constructor.
-	 *
-	 * @param fname the fname
-	 * @param lname the lname
-	 * @param dob   the dob
+	 * This is the Profile constructor method.
+	 * 
+	 * @param fname Object of type String.
+	 * @param lname Object of type String.
+	 * @param dob Object of type Date.
 	 */
 	public Profile(String fname, String lname, Date dob) {
 		this.fname = fname;
@@ -37,8 +37,7 @@ public class Profile {
 
 	/**
 	 * This is the toString method.
-	 *
-	 * @return the string.
+	 * @return the string representation of the profile.
 	 */
 	@Override
 	public String toString() {
@@ -46,10 +45,10 @@ public class Profile {
 	}
 
 	/**
-	 * This is the equals method.
+	 * The equals method determines if the profile inputted equals the profile in the system.
 	 *
-	 * @param obj the obj
-	 * @return true if equals
+	 * @param obj Object of type Object.
+	 * @return true if patient's equal, false if not.
 	 */
 	@Override
 	public boolean equals(Object obj) {

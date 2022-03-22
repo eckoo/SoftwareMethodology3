@@ -12,12 +12,12 @@ import java.text.DecimalFormat;
 public class Util {
 
 	/**
-	 * This is BEGINNING_INDEX
+	 * Creates a variable for the beginning index.
 	 */
 	private static final int BEGINNING_INDEX = 0;
-
+	
 	/**
-	 * This is MAX_TOKEN_COUNT
+	 * Creates a variable for the max token count.
 	 */
 	private static final int MAX_TOKEN_COUNT = 100;
 
@@ -28,10 +28,9 @@ public class Util {
 	}
 
 	/**
-	 * This is the readLine method
-	 *
-	 * @param scanner the scanner
-	 * @return the line
+	 * This is the readLine method.
+	 * @param scanner Object of type Scanner.
+	 * @return the current line.
 	 */
 	public static String readLine(Scanner scanner) {
 		String line = null;
@@ -46,10 +45,9 @@ public class Util {
 
 	/**
 	 * This is the tokenize method.
-	 *
-	 * @param line      the line
-	 * @param separator the separator
-	 * @return the tokenization result
+	 * @param line Object of type String.
+	 * @param separator Object of type char.
+	 * @return the tokenization result.
 	 */
 	public static String[] tokenize(String line, char separator) {
 		line = line.replace(separator, ' ');
@@ -67,11 +65,10 @@ public class Util {
 	}
 
 	/**
-	 * This is the tokenizeInteger method
-	 *
-	 * @param line      the line
-	 * @param separator the separator
-	 * @return the tokenization result
+	 * This is the tokenizeInteger method.
+	 * @param line Object of type String.
+	 * @param separator Object of type char.
+	 * @return the tokenization result.
 	 */
 	public static int[] tokenizeIntegers(String line, char separator) {
 		String[] tokens = tokenize(line, separator);
@@ -89,9 +86,8 @@ public class Util {
 
 	/**
 	 * This is the isDouble method.
-	 *
-	 * @param s the s
-	 * @return true if is double
+	 * @param s Object of type String.
+	 * @return true if it is double, false if not.
 	 */
 	public static boolean isDouble(String s) {
 		try {
@@ -104,9 +100,8 @@ public class Util {
 
 	/**
 	 * This is the isInteger method.
-	 *
-	 * @param s the s
-	 * @return true if is integer
+	 * @param s Object of type String.
+	 * @return true if it is integer, false if not.
 	 */
 	public static boolean isInteger(String s) {
 		try {
@@ -119,9 +114,8 @@ public class Util {
 
 	/**
 	 * This is the moneyToString method.
-	 *
-	 * @param amount the amount
-	 * @return the string
+	 * @param amount Object of type double.
+	 * @return string representation of the money.
 	 */
 	public static String moneyToString(double amount) {
 		return new DecimalFormat("#,###,##0.00").format(amount);
