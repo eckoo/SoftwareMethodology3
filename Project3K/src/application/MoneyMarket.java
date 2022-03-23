@@ -46,6 +46,11 @@ public class MoneyMarket extends Savings {
 	 * Creates a variable for the monthly fee.
 	 */
 	private static final double FEE = 10;
+	
+	/**
+	 * Creates a variable for the account index.
+	 */
+	private static final int ACCOUNTINDEX = 4;
 
 	/**
 	 * Creates a variable for withdrawl, which will be an amount that we take from a user's account.
@@ -76,7 +81,7 @@ public class MoneyMarket extends Savings {
 	 */
 	@Override
 	public double fee() {
-		if (this.loyal && this.withdrawl < 4) {
+		if (this.loyal && this.withdrawl < ACCOUNTINDEX) {
 			return WAIVED;
 		} else {
 			return FEE;

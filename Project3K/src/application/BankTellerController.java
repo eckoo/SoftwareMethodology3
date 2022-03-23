@@ -174,7 +174,38 @@ public class BankTellerController implements Initializable {
      */
     @FXML
     private TextField txtDeposit;
-
+    
+    /**
+     * Creates an object for loyalty value.
+     */
+    private static final String LOYAL = "1";
+    
+    /**
+     * Creates an object for not loyal value.
+     */
+    private static final String NOT_LOYAL = "0";
+    
+    /**
+     * Creates an object for New Brunswick campus code.
+     */
+    private static final String NEW_BRUNSWICK = "0";
+    
+    /**
+     * Creates an object for Newark campus code.
+     */
+    private static final String NEWARK = "1";
+    
+    /**
+     * Creates an object for Camden campus code.
+     */
+    private static final String CAMDEN = "2";
+    
+    /**
+     * Creates an object for initial value of code.
+     */
+    private static final String CODE_BASE = "-1";
+    
+    
     /**
      * Initializes the controller class.
      * @param url Object of type URL.
@@ -211,28 +242,32 @@ public class BankTellerController implements Initializable {
         }
         String amount = txtDeposit.getText().trim();
 
-        String code = "-1";
+        String code = CODE_BASE;
 
         if (rdbtnCollegeChecking.isSelected()) {
 
             if (rbtnNB.isSelected()) {
-                code = "0";
+                code = NEW_BRUNSWICK;
             } else if (rbtnNewark.isSelected()) {
-                code = "1";
+                code = NEWARK;
             } else if (rbtnCamden.isSelected()) {
-                code = "2";
+                code = CAMDEN;
             }
         }
         if (rdbtnSaving.isSelected()) {
             if (chkboxLoyalCustomer.isSelected()) {
-                code = "0";
+                code = LOYAL;
             } else {
-                code = "1";
+                code = NOT_LOYAL;
             }
+        }
+        //MoneyMarket is loyal by default, but this will check the box after creation to let user know without printing accounts.
+        if(rdbtnMoneyMarket.isSelected()) {
+        	chkboxLoyalCustomer.setSelected(true);
         }
 
         String line = "O " + accType + " " + fname + " " + lname + " " + dob + " " + amount;
-        if (!code.equals("-1")) {
+        if (!code.equals(CODE_BASE)) {
             line += " " + code;
         }
 
